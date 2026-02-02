@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="header">
+    <span id="header-title">Nuuk RSS</span>
+    <button id="add-button" title="Add new feed">+</button>
+  </div>
+  <div id="feed-list"></div>
+  <div id="empty-state">No feeds yet. Click + to add one.</div>
+
+  <div id="context-menu" class="context-menu hidden">
+    <div class="context-menu-item" data-action="add">Add new feed...</div>
+    <div class="context-menu-item" data-action="edit">Edit feed...</div>
+    <div class="context-menu-item" data-action="delete">Delete feed</div>
+  </div>
+
+  <div id="modal-overlay" class="hidden">
+    <div id="modal">
+      <div id="modal-title">Add Feed</div>
+      <input type="text" id="modal-input" placeholder="Site or feed URL">
+      <div id="modal-fields" class="hidden">
+        <input type="text" id="modal-name" placeholder="Name">
+        <input type="text" id="modal-feed-url" placeholder="Feed URL">
+        <input type="text" id="modal-site-url" placeholder="Site URL">
+      </div>
+      <div id="modal-error" class="hidden"></div>
+      <div id="modal-buttons">
+        <button id="modal-cancel">Cancel</button>
+        <button id="modal-save">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../utils/feed-parser.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Nuuk RSS",
+  "version": "1.0.0",
+  "description": "A minimal RSS tracker. Shows you the unread post count, resets after you click.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{b3e7f4a2-8c91-4d5e-a6b8-2f1c9d0e3a7b}",
+      "data_collection_permissions": {
+        "required": ["none"],
+        "optional": []
+      }
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.svg",
+    "32": "icons/icon-32.svg",
+    "48": "icons/icon-48.svg",
+    "96": "icons/icon-96.svg"
+  },
+  "permissions": ["storage", "alarms", "<all_urls>"],
+  "background": {
+    "scripts": ["utils/feed-parser.js", "background.js"]
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/icon-16.svg",
+      "32": "icons/icon-32.svg"
+    },
+    "default_title": "Nuuk RSS",
+    "default_popup": "popup/popup.html"
+  }
+}

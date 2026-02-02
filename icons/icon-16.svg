@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="16" height="16">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="64" cy="64" r="60"/>
+    </clipPath>
+  </defs>
+
+  <!-- Orange circle background -->
+  <circle cx="64" cy="64" r="60" fill="#FF9400"/>
+
+  <!-- Waves clipped to circle -->
+  <g clip-path="url(#circleClip)">
+    <!-- Wave 1 (top wave) -->
+    <path d="M 0 48
+             C 16 48, 20 34, 32 34
+             C 44 34, 48 48, 64 48
+             C 80 48, 84 34, 96 34
+             C 108 34, 112 48, 128 48
+             L 128 62
+             C 112 62, 108 48, 96 48
+             C 84 48, 80 62, 64 62
+             C 48 62, 44 48, 32 48
+             C 20 48, 16 62, 0 62
+             Z"
+          fill="#ffffff"/>
+
+    <!-- Wave 2 (middle wave) -->
+    <path d="M 0 76
+             C 16 76, 20 62, 32 62
+             C 44 62, 48 76, 64 76
+             C 80 76, 84 62, 96 62
+             C 108 62, 112 76, 128 76
+             L 128 90
+             C 112 90, 108 76, 96 76
+             C 84 76, 80 90, 64 90
+             C 48 90, 44 76, 32 76
+             C 20 76, 16 90, 0 90
+             Z"
+          fill="#ffffff"/>
+
+    <!-- Wave 3 (bottom wave) -->
+    <path d="M 0 104
+             C 16 104, 20 90, 32 90
+             C 44 90, 48 104, 64 104
+             C 80 104, 84 90, 96 90
+             C 108 90, 112 104, 128 104
+             L 128 140
+             L 0 140
+             Z"
+          fill="#ffffff"/>
+  </g>
+</svg>
