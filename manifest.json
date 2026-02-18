@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Nuuk RSS",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A minimal RSS tracker. Shows you the unread post count, resets after you click.",
   "browser_specific_settings": {
     "gecko": {

@@ -156,8 +156,27 @@ async function openFeed(feed) {
   // Open site in new tab
   browser.tabs.create({ url: feed.siteUrl });
 
-  // Mark as read
-  await Storage.updateFeed(feed.id, { unreadCount: 0 });
+  // Fetch the feed to capture any new post IDs before marking as read,
+  // so posts that arrived since the last check won't reappear as unread
+  const updates = { unreadCount: 0 };
+  try {
+    const parsed = await FeedParser.fetch(feed.feedUrl);
+    if (parsed) {
+      const knownIds = new Set(feed.knownPostIds || []);
+      const updatedKnownIds = [...(feed.knownPostIds || [])];
+      for (const post of parsed.posts) {
+        if (!knownIds.has(post.id)) {
+          updatedKnownIds.push(post.id);
+        }
+      }
+      updates.knownPostIds = updatedKnownIds;
+      updates.lastChecked = Date.now();
+    }
+  } catch (e) {
+    // Feed fetch failed - still mark as read, just without updating known IDs
+  }
+
+  await Storage.updateFeed(feed.id, updates);
   await Badge.refresh();
 
   // Close popup
