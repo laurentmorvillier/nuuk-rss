@@ -49,12 +49,12 @@ const Storage = {
 const Badge = {
   update(count) {
     if (count === 0) {
-      browser.browserAction.setBadgeText({ text: '' });
+      browser.action.setBadgeText({ text: '' });
     } else {
       const text = count > 50 ? '50+' : count.toString();
-      browser.browserAction.setBadgeText({ text });
+      browser.action.setBadgeText({ text });
     }
-    browser.browserAction.setBadgeBackgroundColor({ color: '#666666' });
+    browser.action.setBadgeBackgroundColor({ color: '#666666' });
   },
 
   async refresh() {
